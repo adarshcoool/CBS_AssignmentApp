@@ -64,10 +64,10 @@ public class Report extends AppCompatActivity {
         etSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar mcurrentDate = Calendar.getInstance();
-                mYear = mcurrentDate.get(Calendar.YEAR);
-                mMonth = mcurrentDate.get(Calendar.MONTH);
-                mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
+                Calendar mCurrentDate = Calendar.getInstance();
+                mYear = mCurrentDate.get(Calendar.YEAR);
+                mMonth = mCurrentDate.get(Calendar.MONTH);
+                mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog mDatePicker = new DatePickerDialog(Report.this, new DatePickerDialog.OnDateSetListener() {
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
                         // TODO Auto-generated method stub

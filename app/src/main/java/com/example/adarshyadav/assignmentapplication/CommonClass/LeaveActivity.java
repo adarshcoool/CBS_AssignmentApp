@@ -41,6 +41,7 @@ public class LeaveActivity extends AppCompatActivity {
     Button ApplyButton;
     EditText fromDate, toDate, etReason;
     String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
     SaveDataAsyncTask mSaveDataAsyncTask;
 
     String[] leaveType = {"Casual Leave", "Leave Without Pay", "Absent", "Earned Leave", "Short Leave"};
@@ -132,10 +133,10 @@ public class LeaveActivity extends AppCompatActivity {
         fromDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar mcurrentDate = Calendar.getInstance();
-                mYear = mcurrentDate.get(Calendar.YEAR);
-                mMonth = mcurrentDate.get(Calendar.MONTH);
-                mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
+                Calendar mCurrentDate = Calendar.getInstance();
+                mYear = mCurrentDate.get(Calendar.YEAR);
+                mMonth = mCurrentDate.get(Calendar.MONTH);
+                mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog mDatePicker = new DatePickerDialog(LeaveActivity.this, new DatePickerDialog.OnDateSetListener() {
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
                         // TODO Auto-generated method stub
@@ -155,10 +156,10 @@ public class LeaveActivity extends AppCompatActivity {
         toDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar mcurrentDate = Calendar.getInstance();
-                mYear = mcurrentDate.get(Calendar.YEAR);
-                mMonth = mcurrentDate.get(Calendar.MONTH);
-                mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
+                Calendar mCurrentDate = Calendar.getInstance();
+                mYear = mCurrentDate.get(Calendar.YEAR);
+                mMonth = mCurrentDate.get(Calendar.MONTH);
+                mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog mDatePicker = new DatePickerDialog(LeaveActivity.this, new DatePickerDialog.OnDateSetListener() {
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
                         // TODO Auto-generated method stub
