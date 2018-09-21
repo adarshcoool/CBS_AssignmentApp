@@ -275,7 +275,7 @@ public class LeaveActivity extends AppCompatActivity {
 //            mDialog.setVisibility(View.GONE);
             Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
             if (errorMsg.contains("Leave Application Add Succefully")) {
-                Intent i = new Intent(LeaveActivity.this, PostTransaction.class);
+                Intent i = new Intent(LeaveActivity.this, Transaction.class);
                 startActivity(i);
             }
         }

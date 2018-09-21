@@ -28,11 +28,10 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Adapters.OutstandingAdapter" />
-        <activity android:name=".CommonClass.GetTransaction" />
-        <activity android:name=".Activities.Dashboard" />
+        <activity android:name=".CommonClass.Report" />
         <activity android:name=".LeaveActivity" />
         <activity android:name=".CommonClass.LeaveActivity" />
-        <activity android:name=".CommonClass.PostTransaction" />
+        <activity android:name=".CommonClass.Transaction" />
         <activity android:name=".Adapters.PostTransactionAdapter"></activity>
     </application>
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CommonClass.GetTransaction">
+    tools:context=".CommonClass.Report">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:background="@color/colorPrimaryDark"
         android:gravity="center|bottom"
         android:padding="10dp"
-        android:text="OUTSTANDING REPORT"
+        android:text="CUSTOMER OUTSTANDING REPORT"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -26,7 +26,7 @@
 
         <EditText
             android:id="@+id/et_searchDate"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -36,17 +36,12 @@
             android:padding="15dp"
             android:textAlignment="center" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_search_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
             android:gravity="center"
-            android:text="SEARCH"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:src="@drawable/searchbutton" />
 
     </LinearLayout>
 

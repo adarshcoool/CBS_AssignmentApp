@@ -9,12 +9,17 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
+import com.example.adarshyadav.assignmentapplication.CommonClass.LeaveActivity;
+import com.example.adarshyadav.assignmentapplication.CommonClass.Report;
 import com.example.adarshyadav.assignmentapplication.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    LinearLayout getTransaction, postTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,25 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getTransaction = findViewById(R.id.get_transaction);
+        postTransaction = findViewById(R.id.post_transaction);
+
+        getTransaction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, Report.class);
+                startActivity(i);
+            }
+        });
+
+        postTransaction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, LeaveActivity.class);
+                startActivity(i);
+            }
+        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -49,10 +73,14 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.home) {
-
+        if (id == R.id.transaction) {
+            Intent i = new Intent(MainActivity.this, LeaveActivity.class);
+            startActivity(i);
         } else if (id == R.id.logout) {
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
+        } else if (id == R.id.report) {
+            Intent i = new Intent(MainActivity.this, Report.class);
             startActivity(i);
         }
 

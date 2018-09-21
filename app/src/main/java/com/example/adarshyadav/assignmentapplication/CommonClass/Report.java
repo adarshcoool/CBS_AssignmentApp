@@ -7,9 +7,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,11 +32,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class GetTransaction extends AppCompatActivity {
+public class Report extends AppCompatActivity {
 
     ListView listView;
     OutstandingAdapter mAdapter;
-    Button btnSearchButton;
+    ImageButton btnSearchButton;
     EditText etSearch;
     ArrayList mArrayList;
     int mYear, mMonth, mDay;
@@ -68,7 +68,7 @@ public class GetTransaction extends AppCompatActivity {
                 mYear = mcurrentDate.get(Calendar.YEAR);
                 mMonth = mcurrentDate.get(Calendar.MONTH);
                 mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog mDatePicker = new DatePickerDialog(GetTransaction.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog mDatePicker = new DatePickerDialog(Report.this, new DatePickerDialog.OnDateSetListener() {
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
                         // TODO Auto-generated method stub
                         Calendar c = Calendar.getInstance();
@@ -107,7 +107,7 @@ public class GetTransaction extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            type = new ProgressDialog(GetTransaction.this);
+            type = new ProgressDialog(Report.this);
             type.setMessage("Please wait");
             type.show();
             type.setCancelable(false);
@@ -162,7 +162,7 @@ public class GetTransaction extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
 
-                mAdapter = new OutstandingAdapter(GetTransaction.this, mArrayList);
+                mAdapter = new OutstandingAdapter(Report.this, mArrayList);
                 listView.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             } else {

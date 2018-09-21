@@ -14,7 +14,7 @@
         android:background="@color/colorPrimaryDark"
         android:gravity="center|top"
         android:padding="10dp"
-        android:text="POST TRANSACTION"
+        android:text="TRANSACTION"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -170,6 +170,7 @@
 
                 <EditText
                     android:id="@+id/et_fromDate"
+                    android:hint="Enter Date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -211,6 +212,7 @@
 
                 <EditText
                     android:id="@+id/et_toDate"
+                    android:hint="Enter Date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -245,6 +247,7 @@
 
             <EditText
                 android:id="@+id/et_Reason"
+                android:hint="Enter Reason"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"

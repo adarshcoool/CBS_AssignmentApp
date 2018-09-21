@@ -205,7 +205,7 @@ public class LoginActivity extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
 
-                Intent i = new Intent(LoginActivity.this, Dashboard.class);
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
 

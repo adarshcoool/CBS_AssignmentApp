@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PostTransaction extends AppCompatActivity {
+public class Transaction extends AppCompatActivity {
 
     ListView postTransaction;
     PostTransactionAdapter mAdapter;
@@ -58,7 +58,7 @@ public class PostTransaction extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            type = new ProgressDialog(PostTransaction.this);
+            type = new ProgressDialog(Transaction.this);
             type.setMessage("Please wait");
             type.show();
             type.setCancelable(false);
@@ -113,7 +113,7 @@ public class PostTransaction extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
                 Collections.reverse(mArrayList);
-                mAdapter = new PostTransactionAdapter(PostTransaction.this, mArrayList);
+                mAdapter = new PostTransactionAdapter(Transaction.this, mArrayList);
                 postTransaction.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             } else {
