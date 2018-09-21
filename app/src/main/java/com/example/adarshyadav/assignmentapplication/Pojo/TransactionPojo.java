@@ -1,7 +1,28 @@
 package com.example.adarshyadav.assignmentapplication.Pojo;
 
-public class PostTransactionPojo {
-    private String applicationNo, leaveType, fromDate, toDate;
+public class TransactionPojo {
+    private String applicationNo;
+    private String leaveType;
+    private String fromDate;
+    private String toDate;
+    private String fromSession;
+    private String toSession;
+
+    public String getFromSession() {
+        return fromSession;
+    }
+
+    public void setFromSession(String fromSession) {
+        this.fromSession = fromSession;
+    }
+
+    public String getToSession() {
+        return toSession;
+    }
+
+    public void setToSession(String toSession) {
+        this.toSession = toSession;
+    }
 
     public String getApplicationNo() {
         return applicationNo;

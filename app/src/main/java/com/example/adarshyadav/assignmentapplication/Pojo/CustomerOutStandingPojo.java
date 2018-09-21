@@ -1,6 +1,6 @@
 package com.example.adarshyadav.assignmentapplication.Pojo;
 
-public class OutStandingPojo {
+public class CustomerOutStandingPojo {
     private String CustomerCode;
     private String CustomerName;
     private String Amount;

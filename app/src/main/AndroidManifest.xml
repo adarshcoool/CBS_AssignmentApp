@@ -27,12 +27,12 @@
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Adapters.OutstandingAdapter" />
+        <activity android:name=".Adapters.CustomerOutstandingAdapter" />
         <activity android:name=".CommonClass.Report" />
         <activity android:name=".LeaveActivity" />
         <activity android:name=".CommonClass.LeaveActivity" />
         <activity android:name=".CommonClass.Transaction" />
-        <activity android:name=".Adapters.PostTransactionAdapter"></activity>
+        <activity android:name=".Adapters.TransactionAdapter"></activity>
     </application>
 
 </manifest>

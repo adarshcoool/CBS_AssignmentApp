@@ -7,19 +7,19 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.adarshyadav.assignmentapplication.Pojo.OutStandingPojo;
+import com.example.adarshyadav.assignmentapplication.Pojo.CustomerOutStandingPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import java.util.ArrayList;
 
-public class OutstandingAdapter extends BaseAdapter {
+public class CustomerOutstandingAdapter extends BaseAdapter {
 
     TextView CustomerCode, CustomerName, Amount;
     private Context context;
-    private ArrayList<OutStandingPojo> result;
+    private ArrayList<CustomerOutStandingPojo> result;
 
 
-    public OutstandingAdapter(Context ctx, ArrayList<OutStandingPojo> result) {
+    public CustomerOutstandingAdapter(Context ctx, ArrayList<CustomerOutStandingPojo> result) {
         super();
         this.context = ctx;
         this.result = result;
@@ -47,7 +47,7 @@ public class OutstandingAdapter extends BaseAdapter {
     public View getView(final int pos, View convertView, final ViewGroup arg2) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.activity_outstanding_adapter, arg2, false);
+        View rowView = inflater.inflate(R.layout.activity_customer_outstanding_adapter, arg2, false);
 
         CustomerCode = rowView.findViewById(R.id.tvCustomer_code);
         CustomerName = rowView.findViewById(R.id.tvCustomer_name);

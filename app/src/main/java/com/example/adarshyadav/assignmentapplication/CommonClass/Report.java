@@ -13,8 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.adarshyadav.assignmentapplication.Adapters.OutstandingAdapter;
-import com.example.adarshyadav.assignmentapplication.Pojo.OutStandingPojo;
+import com.example.adarshyadav.assignmentapplication.Adapters.CustomerOutstandingAdapter;
+import com.example.adarshyadav.assignmentapplication.Pojo.CustomerOutStandingPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpEntity;
@@ -35,7 +35,7 @@ import java.util.Calendar;
 public class Report extends AppCompatActivity {
 
     ListView listView;
-    OutstandingAdapter mAdapter;
+    CustomerOutstandingAdapter mAdapter;
     ImageButton btnSearchButton;
     EditText etSearch;
     ArrayList mArrayList;
@@ -46,7 +46,7 @@ public class Report extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_transaction);
+        setContentView(R.layout.activity_report);
 
         listView = findViewById(R.id.list_view);
         btnSearchButton = findViewById(R.id.btn_search_button);
@@ -55,7 +55,7 @@ public class Report extends AppCompatActivity {
         btnSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mArrayList = new ArrayList<OutStandingPojo>();
+                mArrayList = new ArrayList<CustomerOutStandingPojo>();
                 LIST_URL = "http://103.75.33.98/ReportService/ReportServices.svc/GetCustomer?Company_NO=CBS&Location_no=NOIDA&AS_ON_DATE=" + etSearch.getText().toString().trim() + "&FROM_CUSTOMER=&TO_CUSTOMER=";
                 new ListAsyncTask().execute(LIST_URL);
             }
@@ -138,7 +138,7 @@ public class Report extends AppCompatActivity {
 
                     for (int i = 0; i < Result.length(); i++) {
 
-                        OutStandingPojo op = new OutStandingPojo();
+                        CustomerOutStandingPojo op = new CustomerOutStandingPojo();
 
                         op.setCustomer_Code(Result.getJSONObject(i).getString("Customer_Code"));
                         op.setCustomer_Name(Result.getJSONObject(i).getString("Customer_Name"));
@@ -162,7 +162,7 @@ public class Report extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
 
-                mAdapter = new OutstandingAdapter(Report.this, mArrayList);
+                mAdapter = new CustomerOutstandingAdapter(Report.this, mArrayList);
                 listView.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             } else {

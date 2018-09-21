@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.adarshyadav.assignmentapplication.Adapters.PostTransactionAdapter;
-import com.example.adarshyadav.assignmentapplication.Pojo.PostTransactionPojo;
+import com.example.adarshyadav.assignmentapplication.Adapters.TransactionAdapter;
+import com.example.adarshyadav.assignmentapplication.Pojo.TransactionPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpEntity;
@@ -29,18 +29,18 @@ import java.util.Collections;
 public class Transaction extends AppCompatActivity {
 
     ListView postTransaction;
-    PostTransactionAdapter mAdapter;
+    TransactionAdapter mAdapter;
     ArrayList mArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_transaction);
+        setContentView(R.layout.activity_transaction);
 
         postTransaction = findViewById(R.id.post_list_view);
         String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveAppDetail?AppCode=&EmpCode=DT1033";
 
-        mArrayList = new ArrayList<PostTransactionPojo>();
+        mArrayList = new ArrayList<TransactionPojo>();
         new ListAsyncTask().execute(URL);
     }
 
@@ -49,10 +49,6 @@ public class Transaction extends AppCompatActivity {
         ProgressDialog type;
         String error;
         String Success;
-        String appNo;
-        String leaveType;
-        String fromDate;
-        String toDate;
 
         @Override
         protected void onPreExecute() {
@@ -83,12 +79,14 @@ public class Transaction extends AppCompatActivity {
                     JSONArray Result = GetLeaveAppDetailResult.getJSONArray("LADetails");
                     for (int i = 0; i < Result.length(); i++) {
 
-                        PostTransactionPojo op = new PostTransactionPojo();
+                        TransactionPojo op = new TransactionPojo();
 
                         op.setApplicationNo(Result.getJSONObject(i).getString("Appl_No"));
                         op.setLeaveType(Result.getJSONObject(i).getString("Leave_type"));
                         op.setFromDate(Result.getJSONObject(i).getString("FROM_DATE"));
+                        op.setFromSession(Result.getJSONObject(i).getString("from_session"));
                         op.setToDate(Result.getJSONObject(i).getString("TO_DATE"));
+                        op.setToSession(Result.getJSONObject(i).getString("To_session"));
 
                         mArrayList.add(op);
                     }
@@ -113,7 +111,7 @@ public class Transaction extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
                 Collections.reverse(mArrayList);
-                mAdapter = new PostTransactionAdapter(Transaction.this, mArrayList);
+                mAdapter = new TransactionAdapter(Transaction.this, mArrayList);
                 postTransaction.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             } else {
