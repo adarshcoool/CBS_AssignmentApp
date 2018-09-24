@@ -40,7 +40,7 @@ public class LeaveActivity extends AppCompatActivity {
     Spinner LeaveType, SessionFromDate, SessionToDate;
     Button ApplyButton;
     EditText fromDate, toDate, etReason;
-    String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+    String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
     SaveDataAsyncTask mSaveDataAsyncTask;
 
@@ -141,10 +141,10 @@ public class LeaveActivity extends AppCompatActivity {
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
                         // TODO Auto-generated method stub
                         Calendar c = Calendar.getInstance();
-                        c.set(selectedyear, selectedmonth, selectedday);
-                        sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        fromDate.setText(pad(selectedyear) + "-" + pad(selectedmonth + 1) +
-                                "-" + pad(selectedday));
+                        c.set(selectedday, selectedmonth, selectedyear);
+                        sdf = new SimpleDateFormat("dd-MM-yyyy");
+                        fromDate.setText(pad(selectedday) + "-" + pad(selectedmonth + 1) +
+                                "-" + pad(selectedyear));
                     }
                 }, mYear, mMonth, mDay);
                 mDatePicker.getDatePicker().setCalendarViewShown(false);
@@ -164,10 +164,10 @@ public class LeaveActivity extends AppCompatActivity {
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
                         // TODO Auto-generated method stub
                         Calendar c = Calendar.getInstance();
-                        c.set(selectedyear, selectedmonth, selectedday);
-                        sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        toDate.setText(pad(selectedyear) + "-" + pad(selectedmonth + 1) +
-                                "-" + pad(selectedday));
+                        c.set(selectedday, selectedmonth, selectedyear);
+                        sdf = new SimpleDateFormat("dd-MM-yyyy");
+                        toDate.setText(pad(selectedday) + "-" + pad(selectedmonth + 1) +
+                                "-" + pad(selectedyear));
                     }
                 }, mYear, mMonth, mDay);
                 mDatePicker.getDatePicker().setCalendarViewShown(false);

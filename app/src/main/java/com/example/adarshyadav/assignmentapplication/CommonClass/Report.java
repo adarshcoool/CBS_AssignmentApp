@@ -72,10 +72,10 @@ public class Report extends AppCompatActivity {
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
                         // TODO Auto-generated method stub
                         Calendar c = Calendar.getInstance();
-                        c.set(selectedyear, selectedmonth, selectedday);
-                        sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        etSearch.setText(pad(selectedyear) + "-" + pad(selectedmonth + 1) +
-                                "-" + pad(selectedday));
+                        c.set(selectedday, selectedmonth, selectedyear);
+                        sdf = new SimpleDateFormat("dd-MM-yyyy");
+                        etSearch.setText(pad(selectedday) + "-" + pad(selectedmonth + 1) +
+                                "-" + pad(selectedyear));
                     }
                 }, mYear, mMonth, mDay);
                 mDatePicker.getDatePicker().setCalendarViewShown(false);
