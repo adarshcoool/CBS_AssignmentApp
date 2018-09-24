@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="18dp"
     tools:context=".Adapters.CustomerOutstandingAdapter">
 
     <LinearLayout
@@ -34,15 +34,14 @@
                 android:layout_gravity="left"
                 android:layout_weight="1"
                 android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:orientation="horizontal">
 
             <TextView
@@ -52,7 +51,7 @@
                 android:gravity="left"
                 android:text="Customer Name:"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -62,8 +61,7 @@
                 android:layout_gravity="left"
                 android:layout_weight="1"
                 android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
 
 
         </LinearLayout>
@@ -72,7 +70,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:orientation="horizontal">
 
 
@@ -83,7 +81,7 @@
                 android:gravity="left"
                 android:text="Amount:"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -93,8 +91,7 @@
                 android:layout_gravity="left"
                 android:layout_weight="1"
                 android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

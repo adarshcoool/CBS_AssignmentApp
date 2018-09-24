@@ -57,7 +57,7 @@
                 android:gravity="center|left"
                 android:text="Ass.Person"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/ass_person"
@@ -67,7 +67,7 @@
                 android:gravity=""
                 android:text="Adarsh Yadav"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -86,7 +86,7 @@
                 android:gravity="center|left"
                 android:text="Rpt.Person"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/reporting_person"
@@ -96,7 +96,7 @@
                 android:gravity="left"
                 android:text="Sushil Kumar Das"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -120,7 +120,7 @@
                 android:gravity="center|left"
                 android:text="Leave Type"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/leave_spinner"
@@ -146,7 +146,7 @@
                 android:gravity="center|left"
                 android:text="Balance"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/balance"
@@ -156,7 +156,7 @@
                 android:gravity="left"
                 android:text="0.0"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:text="From Date"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <!--  <DatePicker
                       android:id="@+id/fromDate_picker"
@@ -188,6 +188,7 @@
 
                 <EditText
                     android:id="@+id/et_fromDate"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Date" />
@@ -198,7 +199,7 @@
                     android:layout_marginTop="10dp"
                     android:text="Session"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/fromDate_spinner"
@@ -221,7 +222,7 @@
                     android:layout_height="wrap_content"
                     android:text="To Date"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
                 <!--
                             <DatePicker
                                 android:layout_width="wrap_content"
@@ -230,6 +231,7 @@
 
                 <EditText
                     android:id="@+id/et_toDate"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Date" />
@@ -240,7 +242,7 @@
                     android:layout_marginTop="10dp"
                     android:text="Session"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/toDate_spinner"
@@ -261,10 +263,11 @@
                 android:layout_height="wrap_content"
                 android:text="Reason"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/et_Reason"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Reason"
@@ -279,7 +282,7 @@
                 android:background="@color/colorPrimaryDark"
                 android:text="Apply"
                 android:textColor="#FFFFFF"
-                android:textSize="18dp" />
+                android:textSize="16dp" />
         </LinearLayout>
     </LinearLayout>
 
