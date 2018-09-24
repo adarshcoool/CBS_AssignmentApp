@@ -8,16 +8,34 @@
     android:paddingBottom="15sp"
     tools:context=".CommonClass.LeaveActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:background="@color/colorPrimaryDark"
-        android:gravity="center|top"
-        android:padding="10dp"
-        android:text="TRANSACTION"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:text="TRANSACTION"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="LOGOUT"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -170,9 +188,9 @@
 
                 <EditText
                     android:id="@+id/et_fromDate"
-                    android:hint="Enter Date"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Date" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -212,9 +230,9 @@
 
                 <EditText
                     android:id="@+id/et_toDate"
-                    android:hint="Enter Date"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Date" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -247,9 +265,9 @@
 
             <EditText
                 android:id="@+id/et_Reason"
-                android:hint="Enter Reason"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Enter Reason"
                 android:imeOptions="actionDone"
                 android:inputType="text" />
 

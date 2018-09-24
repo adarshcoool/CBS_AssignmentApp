@@ -14,8 +14,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpResponse;
@@ -36,11 +38,13 @@ import java.util.Locale;
 public class LeaveActivity extends AppCompatActivity {
 
     int mYear, mMonth, mDay;
-    SimpleDateFormat sdf;
+    String a, b;
+    SimpleDateFormat sdf1, sdf2;
     Spinner LeaveType, SessionFromDate, SessionToDate;
     Button ApplyButton;
+    TextView logout;
     EditText fromDate, toDate, etReason;
-    String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+    String not_date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
     SaveDataAsyncTask mSaveDataAsyncTask;
 
@@ -63,6 +67,7 @@ public class LeaveActivity extends AppCompatActivity {
         fromDate = findViewById(R.id.et_fromDate);
         fromDate.setFocusable(false);
         etReason = findViewById(R.id.et_Reason);
+        logout = findViewById(R.id.logout);
 
         //Creating the ArrayAdapter instance having the spinner list
         ArrayAdapter leaveAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, leaveType);
@@ -77,6 +82,14 @@ public class LeaveActivity extends AppCompatActivity {
         ArrayAdapter toDateAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, session);
         toDateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         SessionToDate.setAdapter(toDateAdapter);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LeaveActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
         ApplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,13 +151,13 @@ public class LeaveActivity extends AppCompatActivity {
                 mMonth = mCurrentDate.get(Calendar.MONTH);
                 mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog mDatePicker = new DatePickerDialog(LeaveActivity.this, new DatePickerDialog.OnDateSetListener() {
-                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+                    public void onDateSet(DatePicker datepicker, int selectedday, int selectedmonth, int selectedyear) {
                         // TODO Auto-generated method stub
                         Calendar c = Calendar.getInstance();
                         c.set(selectedday, selectedmonth, selectedyear);
-                        sdf = new SimpleDateFormat("dd-MM-yyyy");
-                        fromDate.setText(pad(selectedday) + "-" + pad(selectedmonth + 1) +
-                                "-" + pad(selectedyear));
+                        sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                        fromDate.setText(pad(selectedyear) + "-" + pad(selectedmonth + 1) +
+                                "-" + pad(selectedday));
                     }
                 }, mYear, mMonth, mDay);
                 mDatePicker.getDatePicker().setCalendarViewShown(false);
@@ -161,13 +174,13 @@ public class LeaveActivity extends AppCompatActivity {
                 mMonth = mCurrentDate.get(Calendar.MONTH);
                 mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog mDatePicker = new DatePickerDialog(LeaveActivity.this, new DatePickerDialog.OnDateSetListener() {
-                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+                    public void onDateSet(DatePicker datepicker, int selectedday, int selectedmonth, int selectedyear) {
                         // TODO Auto-generated method stub
                         Calendar c = Calendar.getInstance();
                         c.set(selectedday, selectedmonth, selectedyear);
-                        sdf = new SimpleDateFormat("dd-MM-yyyy");
-                        toDate.setText(pad(selectedday) + "-" + pad(selectedmonth + 1) +
-                                "-" + pad(selectedyear));
+                        sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+                        toDate.setText(pad(selectedyear) + "-" + pad(selectedmonth + 1) +
+                                "-" + pad(selectedday));
                     }
                 }, mYear, mMonth, mDay);
                 mDatePicker.getDatePicker().setCalendarViewShown(false);
@@ -193,6 +206,12 @@ public class LeaveActivity extends AppCompatActivity {
     public void postLeaveActivity() {
         String URL_DETAIL;
         try {
+            sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+            sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+            Date date1 = sdf1.parse(fromDate.getText().toString().trim());
+            Date date2 = sdf1.parse(toDate.getText().toString().trim());
+            a = sdf2.format(date1);
+            b = sdf2.format(date2);
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("COMPANY_NO", "COGNI");
@@ -200,9 +219,9 @@ public class LeaveActivity extends AppCompatActivity {
                 jsonObject.put("emp_code", "DT1033");
                 jsonObject.put("App_code", "");
                 jsonObject.put("Leave_type", lType);
-                jsonObject.put("Notified_date", date);
-                jsonObject.put("From_date", fromDate.getText().toString().trim());
-                jsonObject.put("To_date", toDate.getText().toString().trim());
+                jsonObject.put("Notified_date", not_date);
+                jsonObject.put("From_date", a);
+                jsonObject.put("To_date", b);
                 jsonObject.put("Calender_Code", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
                 jsonObject.put("From_session", sType);
                 jsonObject.put("To_session", sType);

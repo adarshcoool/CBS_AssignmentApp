@@ -3,24 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".CommonClass.Report">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center|bottom"
-        android:padding="10dp"
-        android:text="CUSTOMER OUTSTANDING REPORT"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:text="CUSTOMER OUTSTANDING REPORT"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="LOGOUT"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -33,7 +52,6 @@
             android:focusable="false"
             android:gravity="left"
             android:hint="Enter Date"
-            android:padding="15dp"
             android:textAlignment="center" />
 
         <ImageButton
@@ -41,17 +59,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background="#FFFFFF"
             android:src="@drawable/searchbutton" />
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000000" />
-
 
     <ListView
+        android:background="#FFFFFF"
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>

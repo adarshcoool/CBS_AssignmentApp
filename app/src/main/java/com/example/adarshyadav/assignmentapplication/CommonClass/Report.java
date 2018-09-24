@@ -2,6 +2,7 @@ package com.example.adarshyadav.assignmentapplication.CommonClass;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,8 +12,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
 import com.example.adarshyadav.assignmentapplication.Adapters.CustomerOutstandingAdapter;
 import com.example.adarshyadav.assignmentapplication.Pojo.CustomerOutStandingPojo;
 import com.example.adarshyadav.assignmentapplication.R;
@@ -31,6 +34,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Report extends AppCompatActivity {
 
@@ -40,7 +44,8 @@ public class Report extends AppCompatActivity {
     EditText etSearch;
     ArrayList mArrayList;
     int mYear, mMonth, mDay;
-    SimpleDateFormat sdf;
+    SimpleDateFormat sdf1, sdf2;
+    TextView logout;
     String LIST_URL;
 
     @Override
@@ -49,6 +54,7 @@ public class Report extends AppCompatActivity {
         setContentView(R.layout.activity_report);
 
         listView = findViewById(R.id.list_view);
+        logout = findViewById(R.id.logout);
         btnSearchButton = findViewById(R.id.btn_search_button);
         etSearch = findViewById(R.id.et_searchDate);
 
@@ -56,8 +62,29 @@ public class Report extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mArrayList = new ArrayList<CustomerOutStandingPojo>();
-                LIST_URL = "http://103.75.33.98/ReportService/ReportServices.svc/GetCustomer?Company_NO=CBS&Location_no=NOIDA&AS_ON_DATE=" + etSearch.getText().toString().trim() + "&FROM_CUSTOMER=&TO_CUSTOMER=";
-                new ListAsyncTask().execute(LIST_URL);
+
+
+                sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+
+                try {
+                    Date date = sdf1.parse(etSearch.getText().toString().trim());
+                    String a = sdf2.format(date);
+                    LIST_URL = "http://103.75.33.98/ReportService/ReportServices.svc/GetCustomer?Company_NO=CBS&Location_no=NOIDA&AS_ON_DATE="
+                            + a + "&FROM_CUSTOMER=&TO_CUSTOMER=";
+                    new ListAsyncTask().execute(LIST_URL);
+                } catch (java.text.ParseException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Report.this, LoginActivity.class);
+                startActivity(i);
             }
         });
 
@@ -69,13 +96,13 @@ public class Report extends AppCompatActivity {
                 mMonth = mCurrentDate.get(Calendar.MONTH);
                 mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog mDatePicker = new DatePickerDialog(Report.this, new DatePickerDialog.OnDateSetListener() {
-                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+                    public void onDateSet(DatePicker datepicker, int selectedday, int selectedmonth, int selectedyear) {
                         // TODO Auto-generated method stub
                         Calendar c = Calendar.getInstance();
                         c.set(selectedday, selectedmonth, selectedyear);
-                        sdf = new SimpleDateFormat("dd-MM-yyyy");
-                        etSearch.setText(pad(selectedday) + "-" + pad(selectedmonth + 1) +
-                                "-" + pad(selectedyear));
+                        sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                        etSearch.setText(pad(selectedyear) + "-" + pad(selectedmonth + 1) +
+                                "-" + pad(selectedday));
                     }
                 }, mYear, mMonth, mDay);
                 mDatePicker.getDatePicker().setCalendarViewShown(false);
