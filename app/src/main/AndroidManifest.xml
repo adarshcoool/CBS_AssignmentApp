@@ -31,7 +31,8 @@
         <activity android:name=".CommonClass.Report" />
         <activity android:name=".CommonClass.LeaveActivity" />
         <activity android:name=".CommonClass.Transaction" />
-        <activity android:name=".Adapters.TransactionAdapter"></activity>
+        <activity android:name=".Adapters.TransactionAdapter" />
+        <activity android:name=".CommonClass.HolidayActivity"></activity>
     </application>
 
 </manifest>

@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -122,10 +121,9 @@ public class LoginActivity extends AppCompatActivity {
             // perform the user login attempt.
             //showProgress(true);
 
-            String URL = "http://103.75.33.98/" + "LoginService/UserLoginService.svc/UserLogin?" +
-                    "UserName=" + mEmailView.getText().toString().trim() + "&" +
-                    "Password=" + mPasswordView.getText().toString().trim();
-            Log.e("ADARSH", URL);
+            String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/UserLogin?UserName=" + email + "&Password=" + password;
+            // VALID USERNAME: DT1033, PWD: DT1033
+
             new LogInAsyncTask().execute(URL);
         }
     }
@@ -144,6 +142,7 @@ public class LoginActivity extends AppCompatActivity {
 
         ProgressDialog type;
         String UserId;
+        String ActivityCode;
         String Success;
         String Location_No;
         String Company_No;
@@ -177,15 +176,18 @@ public class LoginActivity extends AppCompatActivity {
                     JSONObject jsono = new JSONObject(data);
                     JSONObject LoginUserResult = jsono.getJSONObject("LoginUserResult");
                     JSONObject LoginMessage = LoginUserResult.getJSONObject("LoginMessage");
+                    ActivityCode = LoginMessage.optString("ActivityCode");
                     error = LoginMessage.optString("ErrorMsg");
                     Success = LoginMessage.optString("Success");
 
                     JSONObject UserDetails = LoginUserResult.getJSONObject("UserDetails");
 
-                    Company_No = UserDetails.optString("Company_No");
-                    Location_No = UserDetails.optString("Location_No");
+                    String Email = UserDetails.optString("Email");
+                    String Image = UserDetails.optString("Image");
                     String LoginName = UserDetails.optString("LoginName");
                     String LoginToken = UserDetails.optString("LoginToken");
+                    String MobileNo = UserDetails.optString("Mobile_No");
+                    String ReportingPerson = UserDetails.optString("REP_PERSON");
                     UserId = UserDetails.optString("UserId");
                     String UserName = UserDetails.optString("UserName");
 

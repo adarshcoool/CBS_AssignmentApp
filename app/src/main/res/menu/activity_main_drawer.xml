@@ -13,6 +13,10 @@
             android:title="Report" />
 
         <item
+            android:id="@+id/holiday"
+            android:title="Holiday List" />
+
+        <item
             android:id="@+id/logout"
             android:title="Logout" />
     </group>

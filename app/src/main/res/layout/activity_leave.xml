@@ -223,11 +223,7 @@
                     android:text="To Date"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
-                <!--
-                            <DatePicker
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/toDate_picker"></DatePicker>-->
+
 
                 <EditText
                     android:id="@+id/et_toDate"

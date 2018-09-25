@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.adarshyadav.assignmentapplication.CommonClass.HolidayActivity;
 import com.example.adarshyadav.assignmentapplication.CommonClass.LeaveActivity;
 import com.example.adarshyadav.assignmentapplication.CommonClass.Report;
 import com.example.adarshyadav.assignmentapplication.R;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity
         getTransaction = findViewById(R.id.get_transaction);
         postTransaction = findViewById(R.id.post_transaction);
         logout = findViewById(R.id.logout);
+
 
         getTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +95,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.report) {
             Intent i = new Intent(MainActivity.this, Report.class);
+            startActivity(i);
+        } else if (id == R.id.holiday) {
+            Intent i = new Intent(MainActivity.this, HolidayActivity.class);
             startActivity(i);
         }
 

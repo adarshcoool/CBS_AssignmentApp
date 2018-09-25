@@ -49,7 +49,9 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="27a61a" />
+                                      <entry key="backgroundImage" value="C:\Users\Adarsh Yadav\Downloads\cbs.png" />
                                       <entry key="foregroundAssetType" value="CLIP_ART" />
+                                      <entry key="foregroundImage" value="C:\Users\Adarsh Yadav\Downloads\cbs.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
