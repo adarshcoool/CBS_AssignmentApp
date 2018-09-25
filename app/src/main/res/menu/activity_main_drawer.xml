@@ -6,27 +6,35 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/transaction"
-            android:title="Transaction" />
+            android:title="TRANSACTION" />
 
         <item
             android:id="@+id/report"
-            android:title="Report" />
+            android:title="REPORT" />
 
         <item
             android:id="@+id/birthday"
-            android:title="Birthdays" />
+            android:title="BIRTHDAYS" />
 
         <item
             android:id="@+id/holiday"
-            android:title="Holiday List" />
+            android:title="HOLIDAY LIST" />
 
 
         <item
             android:id="@+id/new_joinee"
-            android:title="New Joining" />
+            android:title="NEW JOINING" />
+
+        <item
+            android:id="@+id/contact_us"
+            android:title="CONTACT US" />
+
+        <item
+            android:id="@+id/about_us"
+            android:title="ABOUT US" />
 
         <item
             android:id="@+id/logout"
-            android:title="Logout" />
+            android:title="LOGOUT" />
     </group>
 </menu>

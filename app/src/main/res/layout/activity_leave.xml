@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_weight="1"
+            android:visibility="gone"
             android:src="@drawable/back" />
 
         <TextView

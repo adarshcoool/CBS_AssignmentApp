@@ -13,7 +13,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.adarshyadav.assignmentapplication.CommonClass.AboutUs;
 import com.example.adarshyadav.assignmentapplication.CommonClass.BirthdayActivity;
+import com.example.adarshyadav.assignmentapplication.CommonClass.ContactUs;
 import com.example.adarshyadav.assignmentapplication.CommonClass.HolidayActivity;
 import com.example.adarshyadav.assignmentapplication.CommonClass.LeaveActivity;
 import com.example.adarshyadav.assignmentapplication.CommonClass.NewJoiningActivity;
@@ -106,6 +108,12 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.new_joinee) {
             Intent i = new Intent(MainActivity.this, NewJoiningActivity.class);
+            startActivity(i);
+        } else if (id == R.id.about_us) {
+            Intent i = new Intent(MainActivity.this, AboutUs.class);
+            startActivity(i);
+        } else if (id == R.id.contact_us) {
+            Intent i = new Intent(MainActivity.this, ContactUs.class);
             startActivity(i);
         }
 

@@ -34,7 +34,9 @@
         <activity android:name=".Adapters.TransactionAdapter" />
         <activity android:name=".CommonClass.HolidayActivity" />
         <activity android:name=".CommonClass.BirthdayActivity" />
-        <activity android:name=".CommonClass.NewJoiningActivity"></activity>
+        <activity android:name=".CommonClass.NewJoiningActivity" />
+        <activity android:name=".CommonClass.ContactUs" />
+        <activity android:name=".CommonClass.AboutUs"></activity>
     </application>
 
 </manifest>
