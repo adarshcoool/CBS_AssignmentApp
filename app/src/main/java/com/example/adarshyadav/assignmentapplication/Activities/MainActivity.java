@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.adarshyadav.assignmentapplication.CommonClass.BirthdayActivity;
 import com.example.adarshyadav.assignmentapplication.CommonClass.HolidayActivity;
 import com.example.adarshyadav.assignmentapplication.CommonClass.LeaveActivity;
 import com.example.adarshyadav.assignmentapplication.CommonClass.Report;
@@ -98,6 +99,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.holiday) {
             Intent i = new Intent(MainActivity.this, HolidayActivity.class);
+            startActivity(i);
+        } else if (id == R.id.birthday) {
+            Intent i = new Intent(MainActivity.this, BirthdayActivity.class);
             startActivity(i);
         }
 

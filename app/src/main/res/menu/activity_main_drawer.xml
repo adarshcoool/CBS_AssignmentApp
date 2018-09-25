@@ -17,6 +17,10 @@
             android:title="Holiday List" />
 
         <item
+            android:id="@+id/birthday"
+            android:title="Birthdays" />
+
+        <item
             android:id="@+id/logout"
             android:title="Logout" />
     </group>
