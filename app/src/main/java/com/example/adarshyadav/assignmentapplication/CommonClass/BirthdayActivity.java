@@ -1,13 +1,17 @@
 package com.example.adarshyadav.assignmentapplication.CommonClass;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
 import com.example.adarshyadav.assignmentapplication.Adapters.BirthdayAdapter;
 import com.example.adarshyadav.assignmentapplication.Pojo.BirthdayPojo;
 import com.example.adarshyadav.assignmentapplication.R;
@@ -31,18 +35,28 @@ public class BirthdayActivity extends AppCompatActivity {
     ListView birthdayListview;
     BirthdayAdapter mAdapter;
     ArrayList mArrayList;
+    TextView Logout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_birthday);
+        Logout = findViewById(R.id.logout);
 
         birthdayListview = findViewById(R.id.birthday_list_view);
         String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetUserBirthdayDetail?LoginName=";
 
         mArrayList = new ArrayList<BirthdayPojo>();
         new ListAsyncTask().execute(URL);
+
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     class ListAsyncTask extends AsyncTask<String, Void, Boolean> {

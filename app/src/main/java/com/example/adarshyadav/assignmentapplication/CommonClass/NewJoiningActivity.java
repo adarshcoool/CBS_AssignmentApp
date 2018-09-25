@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
-import com.example.adarshyadav.assignmentapplication.Adapters.HolidayAdapter;
-import com.example.adarshyadav.assignmentapplication.Pojo.HolidayPojo;
+import com.example.adarshyadav.assignmentapplication.Adapters.NewJoiningAdapter;
+import com.example.adarshyadav.assignmentapplication.Pojo.NewJoiningPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpEntity;
@@ -30,25 +30,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class HolidayActivity extends AppCompatActivity {
+public class NewJoiningActivity extends AppCompatActivity {
 
-    ListView holidayListview;
-    HolidayAdapter mAdapter;
+    ListView joiningListView;
+    NewJoiningAdapter mAdapter;
     ArrayList mArrayList;
     TextView Logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_holiday);
-
-        holidayListview = findViewById(R.id.holiday_list_view);
+        setContentView(R.layout.activity_new_joining);
         Logout = findViewById(R.id.logout);
-        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetHolidayDatail?YEAR=2018&CALENDER_CODE=2018";
 
-        mArrayList = new ArrayList<HolidayPojo>();
+        joiningListView = findViewById(R.id.new_joining);
+        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetNewJoiningDetail?LoginName=";
+
+        mArrayList = new ArrayList<NewJoiningPojo>();
         new ListAsyncTask().execute(URL);
-
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +67,7 @@ public class HolidayActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            type = new ProgressDialog(HolidayActivity.this);
+            type = new ProgressDialog(NewJoiningActivity.this);
             type.setMessage("Please wait");
             type.show();
             type.setCancelable(false);
@@ -89,23 +88,22 @@ public class HolidayActivity extends AppCompatActivity {
                     HttpEntity entity = response.getEntity();
                     String data = EntityUtils.toString(entity);
                     JSONObject jsono = new JSONObject(data);
-                    JSONObject GetHolidayDetailResult = jsono.getJSONObject("HolidayDatailResult");
-                    JSONArray Result = GetHolidayDetailResult.getJSONArray("HDDetails");
+                    JSONObject GetJoiningDetailResult = jsono.getJSONObject("NewJoiningDetailResult");
+                    JSONArray Result = GetJoiningDetailResult.getJSONArray("NJDetails");
                     for (int i = 0; i < Result.length(); i++) {
 
-                        HolidayPojo op = new HolidayPojo();
+                        NewJoiningPojo op = new NewJoiningPojo();
 
-                        op.setCalenderCode(Result.getJSONObject(i).getString("Calender_Code"));
-                        op.setCalenderName(Result.getJSONObject(i).getString("Calender_Name"));
-                        op.setHolidayDate(Result.getJSONObject(i).getString("Holiday_Date"));
-                        op.setHolidayDay(Result.getJSONObject(i).getString("Holiday_Day"));
-                        op.setHolidayOccasion(Result.getJSONObject(i).getString("Holiday_Occasion"));
-                        op.setYear(Result.getJSONObject(i).getString("YEAR"));
+                        op.setDepartment(Result.getJSONObject(i).getString("DEPARTMENT"));
+                        op.setDate(Result.getJSONObject(i).getString("Date"));
+                        op.setEmail(Result.getJSONObject(i).getString("EMAIL"));
+                        op.setMobileNo(Result.getJSONObject(i).getString("MOBILE_NO"));
+                        op.setName(Result.getJSONObject(i).getString("NAME"));
 
                         mArrayList.add(op);
                     }
 
-                    JSONObject Message = GetHolidayDetailResult.getJSONObject("HolidayMessage");
+                    JSONObject Message = GetJoiningDetailResult.getJSONObject("NewJoiningsMsgMessage");
                     error = Message.optString("ErrorMsg");
                     Success = Message.optString("Success");
 
@@ -125,8 +123,8 @@ public class HolidayActivity extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
                 Collections.reverse(mArrayList);
-                mAdapter = new HolidayAdapter(HolidayActivity.this, mArrayList);
-                holidayListview.setAdapter(mAdapter);
+                mAdapter = new NewJoiningAdapter(NewJoiningActivity.this, mArrayList);
+                joiningListView.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             } else {
                 Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();

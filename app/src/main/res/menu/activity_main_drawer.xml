@@ -13,12 +13,17 @@
             android:title="Report" />
 
         <item
+            android:id="@+id/birthday"
+            android:title="Birthdays" />
+
+        <item
             android:id="@+id/holiday"
             android:title="Holiday List" />
 
+
         <item
-            android:id="@+id/birthday"
-            android:title="Birthdays" />
+            android:id="@+id/new_joinee"
+            android:title="New Joining" />
 
         <item
             android:id="@+id/logout"
