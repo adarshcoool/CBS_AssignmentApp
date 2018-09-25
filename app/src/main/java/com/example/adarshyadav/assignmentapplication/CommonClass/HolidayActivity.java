@@ -7,11 +7,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
+import com.example.adarshyadav.assignmentapplication.Activities.MainActivity;
 import com.example.adarshyadav.assignmentapplication.Adapters.HolidayAdapter;
 import com.example.adarshyadav.assignmentapplication.Pojo.HolidayPojo;
 import com.example.adarshyadav.assignmentapplication.R;
@@ -36,6 +38,7 @@ public class HolidayActivity extends AppCompatActivity {
     HolidayAdapter mAdapter;
     ArrayList mArrayList;
     TextView Logout;
+    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +46,20 @@ public class HolidayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_holiday);
 
         holidayListview = findViewById(R.id.holiday_list_view);
+        backButton = findViewById(R.id.back_button);
         Logout = findViewById(R.id.logout);
         String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetHolidayDatail?YEAR=2018&CALENDER_CODE=2018";
 
         mArrayList = new ArrayList<HolidayPojo>();
         new ListAsyncTask().execute(URL);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HolidayActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override

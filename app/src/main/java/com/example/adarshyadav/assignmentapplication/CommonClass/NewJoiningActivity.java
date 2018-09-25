@@ -7,11 +7,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
+import com.example.adarshyadav.assignmentapplication.Activities.MainActivity;
 import com.example.adarshyadav.assignmentapplication.Adapters.NewJoiningAdapter;
 import com.example.adarshyadav.assignmentapplication.Pojo.NewJoiningPojo;
 import com.example.adarshyadav.assignmentapplication.R;
@@ -36,6 +38,7 @@ public class NewJoiningActivity extends AppCompatActivity {
     NewJoiningAdapter mAdapter;
     ArrayList mArrayList;
     TextView Logout;
+    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class NewJoiningActivity extends AppCompatActivity {
         Logout = findViewById(R.id.logout);
 
         joiningListView = findViewById(R.id.new_joining);
+        backButton = findViewById(R.id.back_button);
         String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetNewJoiningDetail?LoginName=";
 
         mArrayList = new ArrayList<NewJoiningPojo>();
@@ -52,6 +56,14 @@ public class NewJoiningActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(NewJoiningActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });

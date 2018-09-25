@@ -11,11 +11,13 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
+import com.example.adarshyadav.assignmentapplication.Activities.MainActivity;
 import com.example.adarshyadav.assignmentapplication.Adapters.CustomerOutstandingAdapter;
 import com.example.adarshyadav.assignmentapplication.Pojo.CustomerOutStandingPojo;
 import com.example.adarshyadav.assignmentapplication.R;
@@ -47,6 +49,7 @@ public class Report extends AppCompatActivity {
     SimpleDateFormat sdf1, sdf2;
     TextView logout;
     String LIST_URL;
+    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class Report extends AppCompatActivity {
         logout = findViewById(R.id.logout);
         btnSearchButton = findViewById(R.id.btn_search_button);
         etSearch = findViewById(R.id.et_searchDate);
+        backButton = findViewById(R.id.back_button);
 
         btnSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +88,14 @@ public class Report extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Report.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Report.this, MainActivity.class);
                 startActivity(i);
             }
         });

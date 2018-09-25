@@ -7,11 +7,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
+import com.example.adarshyadav.assignmentapplication.Activities.MainActivity;
 import com.example.adarshyadav.assignmentapplication.Adapters.BirthdayAdapter;
 import com.example.adarshyadav.assignmentapplication.Pojo.BirthdayPojo;
 import com.example.adarshyadav.assignmentapplication.R;
@@ -36,6 +38,7 @@ public class BirthdayActivity extends AppCompatActivity {
     BirthdayAdapter mAdapter;
     ArrayList mArrayList;
     TextView Logout;
+    ImageView backButton;
 
 
     @Override
@@ -43,6 +46,7 @@ public class BirthdayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_birthday);
         Logout = findViewById(R.id.logout);
+        backButton = findViewById(R.id.back_button);
 
         birthdayListview = findViewById(R.id.birthday_list_view);
         String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetUserBirthdayDetail?LoginName=";
@@ -54,6 +58,14 @@ public class BirthdayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BirthdayActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });

@@ -13,11 +13,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
+import com.example.adarshyadav.assignmentapplication.Activities.MainActivity;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpResponse;
@@ -38,6 +40,7 @@ import java.util.Locale;
 public class LeaveActivity extends AppCompatActivity {
 
     int mYear, mMonth, mDay;
+    ImageView backButton;
     String a, b;
     SimpleDateFormat sdf1, sdf2;
     Spinner LeaveType, SessionFromDate, SessionToDate;
@@ -58,6 +61,7 @@ public class LeaveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leave);
 
+        backButton = findViewById(R.id.back_button);
         LeaveType = findViewById(R.id.leave_spinner);
         SessionFromDate = findViewById(R.id.fromDate_spinner);
         SessionToDate = findViewById(R.id.toDate_spinner);
@@ -87,6 +91,14 @@ public class LeaveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LeaveActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LeaveActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
