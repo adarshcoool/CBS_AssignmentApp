@@ -8,9 +8,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,7 +42,7 @@ public class Report extends AppCompatActivity {
 
     ListView listView;
     CustomerOutstandingAdapter mAdapter;
-    ImageButton btnSearchButton;
+    Button btnSearchButton;
     EditText etSearch;
     ArrayList mArrayList;
     int mYear, mMonth, mDay;
