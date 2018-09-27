@@ -52,7 +52,11 @@ public class BirthdayAdapter extends BaseAdapter {
         MobileNo = rowView.findViewById(R.id.mobile_number);
 
         Name.setText(result.get(position).getName());
-        Department.setText(result.get(position).getDepartment());
+        if ((result.get(position).getDepartment()).equals("C3")) {
+            Department.setText("MiSAP");
+        } else if ((result.get(position).getDepartment()).equals("C5")) {
+            Department.setText("SAP");
+        }
         Date.setText(result.get(position).getDate());
         Email.setText(result.get(position).getEmail());
         MobileNo.setText(result.get(position).getMobileNO());

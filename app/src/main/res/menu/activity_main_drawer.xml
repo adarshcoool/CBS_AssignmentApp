@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/transaction"
-            android:title="TRANSACTION" />
+            android:title="LEAVE" />
 
         <item
             android:id="@+id/report"

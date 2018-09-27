@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.adarshyadav.assignmentapplication.CommonClass.AboutUs;
 import com.example.adarshyadav.assignmentapplication.CommonClass.BirthdayActivity;
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     LinearLayout getTransaction, postTransaction;
-    TextView logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +35,6 @@ public class MainActivity extends AppCompatActivity
 
         getTransaction = findViewById(R.id.get_transaction);
         postTransaction = findViewById(R.id.post_transaction);
-        logout = findViewById(R.id.logout);
 
 
         getTransaction.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +52,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+/*
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +61,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+*/
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
