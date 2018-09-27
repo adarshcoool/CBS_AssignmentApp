@@ -127,27 +127,27 @@ public class LeaveActivity extends AppCompatActivity {
                 }
 
                 if (SessionFromDate.getSelectedItem().toString().equals("Whole Day")) {
-                    sType = "W";
+                    sType = "Whole Day";
                 }
 
                 if (SessionFromDate.getSelectedItem().toString().equals("First Session")) {
-                    sType = "F";
+                    sType = "First Session";
                 }
 
                 if (SessionFromDate.getSelectedItem().toString().equals("Second Session")) {
-                    sType = "A";
+                    sType = "Second Session";
                 }
 
                 if (SessionToDate.getSelectedItem().toString().equals("Whole Day")) {
-                    sType = "W";
+                    sType = "Whole Day";
                 }
 
                 if (SessionToDate.getSelectedItem().toString().equals("First Session")) {
-                    sType = "F";
+                    sType = "First Session";
                 }
 
                 if (SessionToDate.getSelectedItem().toString().equals("Second Session")) {
-                    sType = "A";
+                    sType = "Second Session";
                 }
 
                 mSaveDataAsyncTask = new SaveDataAsyncTask();
@@ -269,7 +269,7 @@ public class LeaveActivity extends AppCompatActivity {
             HttpResponse response;
             response = httpClient.execute(post);
 
-            StringBuffer stringBuffer = new StringBuffer("");
+            StringBuffer stringBuffer = new StringBuffer();
             BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 
             String line = null;
@@ -306,7 +306,7 @@ public class LeaveActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
 //            mDialog.setVisibility(View.GONE);
             Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
-            if (errorMsg.contains("Leave Application Add Succefully")) {
+            if (errorMsg.contains("Succefully")) {
                 Intent i = new Intent(LeaveActivity.this, Transaction.class);
                 startActivity(i);
             }

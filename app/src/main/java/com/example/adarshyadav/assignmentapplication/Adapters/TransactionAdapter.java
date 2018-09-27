@@ -53,8 +53,20 @@ public class TransactionAdapter extends BaseAdapter {
         ToDate = rowView.findViewById(R.id.toDate);
         ToSession = rowView.findViewById(R.id.toSession);
 
+
         SerialNo.setText(mArrayList.get(position).getApplicationNo());
-        LeaveType.setText(mArrayList.get(position).getLeaveType());
+
+        if ((mArrayList.get(position).getLeaveType()).equals("CL")) {
+            LeaveType.setText("Casual Leave");
+        } else if ((mArrayList.get(position).getLeaveType()).equals("LWP")) {
+            LeaveType.setText("Leave Without Pay");
+        } else if ((mArrayList.get(position).getLeaveType()).equals("EL")) {
+            LeaveType.setText("Earned Leave");
+        } else if ((mArrayList.get(position).getLeaveType()).equals("SL")) {
+            LeaveType.setText("Short Leave");
+        } else if ((mArrayList.get(position).getLeaveType()).equals("ABN")) {
+            LeaveType.setText("Absent");
+        }
         FromDate.setText(mArrayList.get(position).getFromDate());
         ToDate.setText(mArrayList.get(position).getToDate());
         FromSession.setText(mArrayList.get(position).getFromSession());
