@@ -307,7 +307,7 @@ public class LeaveActivity extends AppCompatActivity {
 //            mDialog.setVisibility(View.GONE);
             Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
             if (errorMsg.contains("Succefully")) {
-                Intent i = new Intent(LeaveActivity.this, Report.class);
+                Intent i = new Intent(LeaveActivity.this, LeaveStatusSummary.class);
                 startActivity(i);
             }
         }

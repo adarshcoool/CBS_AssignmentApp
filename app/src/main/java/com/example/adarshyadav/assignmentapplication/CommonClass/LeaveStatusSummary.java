@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
-import com.example.adarshyadav.assignmentapplication.Adapters.ReportAdapter;
-import com.example.adarshyadav.assignmentapplication.Pojo.ReportPojo;
+import com.example.adarshyadav.assignmentapplication.Adapters.LeaveStatusSummaryAdapter;
+import com.example.adarshyadav.assignmentapplication.Pojo.LeaveStatusSummaryPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpEntity;
@@ -30,29 +30,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Report extends AppCompatActivity {
+public class LeaveStatusSummary extends AppCompatActivity {
 
     ListView postTransaction;
-    ReportAdapter mAdapter;
+    LeaveStatusSummaryAdapter mAdapter;
     ArrayList mArrayList;
     TextView logout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
+        setContentView(R.layout.activity_leave_status_summary);
 
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Report.this, LoginActivity.class);
+                Intent i = new Intent(LeaveStatusSummary.this, LoginActivity.class);
                 startActivity(i);
             }
         });
         postTransaction = findViewById(R.id.post_list_view);
         String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveAppDetail?AppCode=&EmpCode=DT1033";
-        mArrayList = new ArrayList<ReportPojo>();
+        mArrayList = new ArrayList<LeaveStatusSummaryPojo>();
         new ListAsyncTask().execute(URL);
     }
 
@@ -66,7 +67,7 @@ public class Report extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            type = new ProgressDialog(Report.this);
+            type = new ProgressDialog(LeaveStatusSummary.this);
             type.setMessage("Please wait");
             type.show();
             type.setCancelable(false);
@@ -89,9 +90,10 @@ public class Report extends AppCompatActivity {
                     JSONObject jsono = new JSONObject(data);
                     JSONObject GetLeaveAppDetailResult = jsono.getJSONObject("LeaveAppDetailResult");
                     JSONArray Result = GetLeaveAppDetailResult.getJSONArray("LADetails");
+                    int d = Result.length();
                     for (int i = 0; i < Result.length(); i++) {
 
-                        ReportPojo op = new ReportPojo();
+                        LeaveStatusSummaryPojo op = new LeaveStatusSummaryPojo();
 
                         op.setApplicationNo(Result.getJSONObject(i).getString("Appl_No"));
                         op.setLeaveType(Result.getJSONObject(i).getString("Leave_type"));
@@ -99,8 +101,9 @@ public class Report extends AppCompatActivity {
                         op.setFromSession(Result.getJSONObject(i).getString("from_session"));
                         op.setToDate(Result.getJSONObject(i).getString("TO_DATE"));
                         op.setToSession(Result.getJSONObject(i).getString("To_session"));
-
-                        mArrayList.add(op);
+                        if (d == i + 1) {
+                            mArrayList.add(op);
+                        }
                     }
 
                     JSONObject Message = GetLeaveAppDetailResult.getJSONObject("LeaveAppMessage");
@@ -123,7 +126,7 @@ public class Report extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
                 Collections.reverse(mArrayList);
-                mAdapter = new ReportAdapter(Report.this, mArrayList);
+                mAdapter = new LeaveStatusSummaryAdapter(LeaveStatusSummary.this, mArrayList);
                 postTransaction.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             } else {
