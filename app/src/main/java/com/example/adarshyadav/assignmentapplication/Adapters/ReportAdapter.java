@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.adarshyadav.assignmentapplication.Pojo.TransactionPojo;
+import com.example.adarshyadav.assignmentapplication.Pojo.ReportPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import java.util.ArrayList;
 
-public class TransactionAdapter extends BaseAdapter {
+public class ReportAdapter extends BaseAdapter {
 
     TextView SerialNo, LeaveType, FromDate, ToDate, ToSession, FromSession;
     private Context context;
-    private ArrayList<TransactionPojo> mArrayList;
+    private ArrayList<ReportPojo> mArrayList;
 
-    public TransactionAdapter(Context ctx, ArrayList<TransactionPojo> mArrayList) {
+    public ReportAdapter(Context ctx, ArrayList<ReportPojo> mArrayList) {
         super();
         this.context = ctx;
         this.mArrayList = mArrayList;
@@ -44,7 +44,7 @@ public class TransactionAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.activity_transaction_adapter, parent, false);
+        View rowView = inflater.inflate(R.layout.activity_report_adapter, parent, false);
 
         SerialNo = rowView.findViewById(R.id.serial_no);
         LeaveType = rowView.findViewById(R.id.leave_type);

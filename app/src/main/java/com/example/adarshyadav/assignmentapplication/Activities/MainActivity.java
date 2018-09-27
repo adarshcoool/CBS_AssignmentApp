@@ -24,7 +24,7 @@ import com.example.adarshyadav.assignmentapplication.R;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout getTransaction, postTransaction;
+    LinearLayout Leave, Report;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getTransaction = findViewById(R.id.get_transaction);
-        postTransaction = findViewById(R.id.post_transaction);
+        Leave = findViewById(R.id.get_transaction);
+        Report = findViewById(R.id.post_transaction);
 
 
-        getTransaction.setOnClickListener(new View.OnClickListener() {
+        Leave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, Report.class);
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        postTransaction.setOnClickListener(new View.OnClickListener() {
+        Report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, LeaveActivity.class);

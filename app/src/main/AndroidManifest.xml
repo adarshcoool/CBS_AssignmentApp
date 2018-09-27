@@ -30,8 +30,8 @@
         <activity android:name=".Adapters.CustomerOutstandingAdapter" />
         <activity android:name=".CommonClass.Report" />
         <activity android:name=".CommonClass.LeaveActivity" />
-        <activity android:name=".CommonClass.Transaction" />
-        <activity android:name=".Adapters.TransactionAdapter" />
+        <activity android:name=".CommonClass.Report" />
+        <activity android:name=".Adapters.ReportAdapter" />
         <activity android:name=".CommonClass.HolidayActivity" />
         <activity android:name=".CommonClass.BirthdayActivity" />
         <activity android:name=".CommonClass.NewJoiningActivity" />
