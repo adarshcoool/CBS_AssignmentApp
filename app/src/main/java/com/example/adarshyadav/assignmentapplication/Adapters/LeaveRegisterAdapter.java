@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.adarshyadav.assignmentapplication.Pojo.ReportPojo;
+import com.example.adarshyadav.assignmentapplication.Pojo.LeaveRegisterPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import java.util.ArrayList;
 
-public class ReportAdapter extends BaseAdapter {
+public class LeaveRegisterAdapter extends BaseAdapter {
 
     TextView SerialNo, LeaveType, FromDate, ToDate, ToSession, FromSession;
     private Context context;
-    private ArrayList<ReportPojo> mArrayList;
+    private ArrayList<LeaveRegisterPojo> mArrayList;
 
-    public ReportAdapter(Context ctx, ArrayList<ReportPojo> mArrayList) {
+    public LeaveRegisterAdapter(Context ctx, ArrayList<LeaveRegisterPojo> mArrayList) {
         super();
         this.context = ctx;
         this.mArrayList = mArrayList;

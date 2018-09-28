@@ -27,15 +27,16 @@
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".CommonClass.Report" />
+        <activity android:name=".CommonClass.LeaveRegisterReport" />
         <activity android:name=".CommonClass.LeaveActivity" />
-        <activity android:name=".Adapters.ReportAdapter" />
+        <activity android:name=".Adapters.LeaveRegisterAdapter" />
         <activity android:name=".CommonClass.HolidayActivity" />
         <activity android:name=".CommonClass.BirthdayActivity" />
         <activity android:name=".CommonClass.NewJoiningActivity" />
         <activity android:name=".CommonClass.ContactUs" />
         <activity android:name=".CommonClass.AboutUs" />
-        <activity android:name=".CommonClass.LeaveStatusSummary"></activity>
+        <activity android:name=".CommonClass.LeaveRegisterSummary" />
+        <activity android:name=".CommonClass.LeaveBalanceReport"></activity>
     </application>
 
 </manifest>

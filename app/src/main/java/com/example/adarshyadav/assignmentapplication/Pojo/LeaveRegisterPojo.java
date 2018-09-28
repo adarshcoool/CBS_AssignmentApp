@@ -1,6 +1,6 @@
 package com.example.adarshyadav.assignmentapplication.Pojo;
 
-public class ReportPojo {
+public class LeaveRegisterPojo {
     private String applicationNo;
     private String leaveType;
     private String fromDate;

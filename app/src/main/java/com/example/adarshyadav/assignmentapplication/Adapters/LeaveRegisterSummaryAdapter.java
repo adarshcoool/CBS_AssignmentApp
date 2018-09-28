@@ -7,17 +7,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.adarshyadav.assignmentapplication.Pojo.LeaveStatusSummaryPojo;
+import com.example.adarshyadav.assignmentapplication.Pojo.LeaveRegisterSummaryPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import java.util.ArrayList;
 
-public class LeaveStatusSummaryAdapter extends BaseAdapter {
+public class LeaveRegisterSummaryAdapter extends BaseAdapter {
     TextView SerialNo, LeaveType, FromDate, ToDate, ToSession, FromSession;
     private Context context;
-    private ArrayList<LeaveStatusSummaryPojo> mArrayList;
+    private ArrayList<LeaveRegisterSummaryPojo> mArrayList;
 
-    public LeaveStatusSummaryAdapter(Context ctx, ArrayList<LeaveStatusSummaryPojo> mArrayList) {
+    public LeaveRegisterSummaryAdapter(Context ctx, ArrayList<LeaveRegisterSummaryPojo> mArrayList) {
         super();
         this.context = ctx;
         this.mArrayList = mArrayList;

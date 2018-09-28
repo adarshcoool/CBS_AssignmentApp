@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
-import com.example.adarshyadav.assignmentapplication.Adapters.LeaveStatusSummaryAdapter;
-import com.example.adarshyadav.assignmentapplication.Pojo.LeaveStatusSummaryPojo;
+import com.example.adarshyadav.assignmentapplication.Adapters.LeaveRegisterSummaryAdapter;
+import com.example.adarshyadav.assignmentapplication.Pojo.LeaveRegisterSummaryPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpEntity;
@@ -30,10 +30,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class LeaveStatusSummary extends AppCompatActivity {
+public class LeaveRegisterSummary extends AppCompatActivity {
 
     ListView postTransaction;
-    LeaveStatusSummaryAdapter mAdapter;
+    LeaveRegisterSummaryAdapter mAdapter;
     ArrayList mArrayList;
     TextView logout;
 
@@ -47,13 +47,13 @@ public class LeaveStatusSummary extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LeaveStatusSummary.this, LoginActivity.class);
+                Intent i = new Intent(LeaveRegisterSummary.this, LoginActivity.class);
                 startActivity(i);
             }
         });
         postTransaction = findViewById(R.id.post_list_view);
         String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveAppDetail?AppCode=&EmpCode=DT1033";
-        mArrayList = new ArrayList<LeaveStatusSummaryPojo>();
+        mArrayList = new ArrayList<LeaveRegisterSummaryPojo>();
         new ListAsyncTask().execute(URL);
     }
 
@@ -67,7 +67,7 @@ public class LeaveStatusSummary extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            type = new ProgressDialog(LeaveStatusSummary.this);
+            type = new ProgressDialog(LeaveRegisterSummary.this);
             type.setMessage("Please wait");
             type.show();
             type.setCancelable(false);
@@ -93,7 +93,7 @@ public class LeaveStatusSummary extends AppCompatActivity {
                     int d = Result.length();
                     for (int i = 0; i < Result.length(); i++) {
 
-                        LeaveStatusSummaryPojo op = new LeaveStatusSummaryPojo();
+                        LeaveRegisterSummaryPojo op = new LeaveRegisterSummaryPojo();
 
                         op.setApplicationNo(Result.getJSONObject(i).getString("Appl_No"));
                         op.setLeaveType(Result.getJSONObject(i).getString("Leave_type"));
@@ -126,7 +126,7 @@ public class LeaveStatusSummary extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
                 Collections.reverse(mArrayList);
-                mAdapter = new LeaveStatusSummaryAdapter(LeaveStatusSummary.this, mArrayList);
+                mAdapter = new LeaveRegisterSummaryAdapter(LeaveRegisterSummary.this, mArrayList);
                 postTransaction.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             } else {

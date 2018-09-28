@@ -12,8 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
-import com.example.adarshyadav.assignmentapplication.Adapters.ReportAdapter;
-import com.example.adarshyadav.assignmentapplication.Pojo.ReportPojo;
+import com.example.adarshyadav.assignmentapplication.Adapters.LeaveBalanceAdapter;
+import com.example.adarshyadav.assignmentapplication.Pojo.LeaveBalancePojo;
+import com.example.adarshyadav.assignmentapplication.Pojo.NewJoiningPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpEntity;
@@ -30,30 +31,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Report extends AppCompatActivity {
+public class LeaveBalanceReport extends AppCompatActivity {
 
-    ListView postTransaction;
-    ReportAdapter mAdapter;
+    ListView LeaveBalance;
+    LeaveBalanceAdapter mAdapter;
     ArrayList mArrayList;
-    TextView logout;
+    TextView Logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
+        setContentView(R.layout.activity_leave_balance_report);
 
-        logout = findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
+        Logout = findViewById(R.id.logout);
+        LeaveBalance = findViewById(R.id.leave_balance);
+        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveStatusDetail?AssoCode=DT1033";
+
+        mArrayList = new ArrayList<NewJoiningPojo>();
+        new ListAsyncTask().execute(URL);
+        Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Report.this, LoginActivity.class);
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(i);
             }
         });
-        postTransaction = findViewById(R.id.post_list_view);
-        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveAppDetail?AppCode=&EmpCode=DT1033";
-        mArrayList = new ArrayList<ReportPojo>();
-        new ListAsyncTask().execute(URL);
     }
 
     class ListAsyncTask extends AsyncTask<String, Void, Boolean> {
@@ -66,7 +68,7 @@ public class Report extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            type = new ProgressDialog(Report.this);
+            type = new ProgressDialog(LeaveBalanceReport.this);
             type.setMessage("Please wait");
             type.show();
             type.setCancelable(false);
@@ -87,25 +89,23 @@ public class Report extends AppCompatActivity {
                     HttpEntity entity = response.getEntity();
                     String data = EntityUtils.toString(entity);
                     JSONObject jsono = new JSONObject(data);
-                    JSONObject GetLeaveAppDetailResult = jsono.getJSONObject("LeaveAppDetailResult");
-                    JSONArray Result = GetLeaveAppDetailResult.getJSONArray("LADetails");
+                    JSONObject GetLeaveStatusDetailResult = jsono.getJSONObject("LeaveStatusDetailResult");
+
+                    JSONObject Message = GetLeaveStatusDetailResult.getJSONObject("GetLeaveStatusMessage");
+                    error = Message.optString("ErrorMsg");
+                    Success = Message.optString("Success");
+
+                    JSONArray Result = GetLeaveStatusDetailResult.getJSONArray("LSDetails");
                     for (int i = 0; i < Result.length(); i++) {
 
-                        ReportPojo op = new ReportPojo();
+                        LeaveBalancePojo op = new LeaveBalancePojo();
 
-                        op.setApplicationNo(Result.getJSONObject(i).getString("Appl_No"));
+                        op.setAvailedLeave(Result.getJSONObject(i).getString("Availed"));
+                        op.setBalanceLeave(Result.getJSONObject(i).getString("Balance"));
                         op.setLeaveType(Result.getJSONObject(i).getString("Leave_type"));
-                        op.setFromDate(Result.getJSONObject(i).getString("FROM_DATE"));
-                        op.setFromSession(Result.getJSONObject(i).getString("from_session"));
-                        op.setToDate(Result.getJSONObject(i).getString("TO_DATE"));
-                        op.setToSession(Result.getJSONObject(i).getString("To_session"));
 
                         mArrayList.add(op);
                     }
-
-                    JSONObject Message = GetLeaveAppDetailResult.getJSONObject("LeaveAppMessage");
-                    error = Message.optString("ErrorMsg");
-                    Success = Message.optString("Success");
 
                     return true;
                 }
@@ -123,8 +123,8 @@ public class Report extends AppCompatActivity {
             type.cancel();
             if (result == true && Success.equals("true")) {
                 Collections.reverse(mArrayList);
-                mAdapter = new ReportAdapter(Report.this, mArrayList);
-                postTransaction.setAdapter(mAdapter);
+                mAdapter = new LeaveBalanceAdapter(LeaveBalanceReport.this, mArrayList);
+                LeaveBalance.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             } else {
                 Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();

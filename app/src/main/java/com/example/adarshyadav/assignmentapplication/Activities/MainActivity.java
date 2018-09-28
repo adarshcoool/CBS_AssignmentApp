@@ -17,8 +17,9 @@ import com.example.adarshyadav.assignmentapplication.CommonClass.BirthdayActivit
 import com.example.adarshyadav.assignmentapplication.CommonClass.ContactUs;
 import com.example.adarshyadav.assignmentapplication.CommonClass.HolidayActivity;
 import com.example.adarshyadav.assignmentapplication.CommonClass.LeaveActivity;
+import com.example.adarshyadav.assignmentapplication.CommonClass.LeaveBalanceReport;
+import com.example.adarshyadav.assignmentapplication.CommonClass.LeaveRegisterReport;
 import com.example.adarshyadav.assignmentapplication.CommonClass.NewJoiningActivity;
-import com.example.adarshyadav.assignmentapplication.CommonClass.Report;
 import com.example.adarshyadav.assignmentapplication.R;
 
 public class MainActivity extends AppCompatActivity
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         Leave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Report.class);
+                Intent i = new Intent(MainActivity.this, LeaveRegisterReport.class);
                 startActivity(i);
             }
         });
@@ -96,8 +97,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.logout) {
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(i);
-        } else if (id == R.id.report) {
-            Intent i = new Intent(MainActivity.this, Report.class);
+        } else if (id == R.id.leave_register_report) {
+            Intent i = new Intent(MainActivity.this, LeaveRegisterReport.class);
+            startActivity(i);
+        } else if (id == R.id.leave_balance_report) {
+            Intent i = new Intent(MainActivity.this, LeaveBalanceReport.class);
             startActivity(i);
         } else if (id == R.id.holiday) {
             Intent i = new Intent(MainActivity.this, HolidayActivity.class);

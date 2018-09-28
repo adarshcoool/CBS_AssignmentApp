@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="REPORT"
+            android:text=" LEAVE REGISTER REPORT"
             android:textColor="#000000"
             android:textSize="22sp"
             android:textStyle="bold" />

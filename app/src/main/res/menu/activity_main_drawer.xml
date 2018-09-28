@@ -9,8 +9,12 @@
             android:title="LEAVE" />
 
         <item
-            android:id="@+id/report"
-            android:title="REPORT" />
+            android:id="@+id/leave_register_report"
+            android:title="LEAVE REGISTER REPORT" />
+
+        <item
+            android:id="@+id/leave_balance_report"
+            android:title="LEAVE BALANCE REPORT" />
 
         <item
             android:id="@+id/birthday"
