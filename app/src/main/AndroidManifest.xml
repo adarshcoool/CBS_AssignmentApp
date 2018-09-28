@@ -27,10 +27,8 @@
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Adapters.CustomerOutstandingAdapter" />
         <activity android:name=".CommonClass.Report" />
         <activity android:name=".CommonClass.LeaveActivity" />
-        <activity android:name=".CommonClass.Report" />
         <activity android:name=".Adapters.ReportAdapter" />
         <activity android:name=".CommonClass.HolidayActivity" />
         <activity android:name=".CommonClass.BirthdayActivity" />

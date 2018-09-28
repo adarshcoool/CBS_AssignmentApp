@@ -117,6 +117,19 @@ public class BirthdayActivity extends AppCompatActivity {
                         mArrayList.add(op);
                     }
 
+                   /* Collections.sort(mArrayList, new Comparator<BirthdayPojo>() {
+                        SimpleDateFormat f = new SimpleDateFormat("dd/MMM/yyyy");
+
+                        @Override
+                        public int compare(BirthdayPojo lhs, BirthdayPojo rhs) {
+                            try {
+                                return f.parse(lhs.getDate()).compareTo(f.parse(rhs.getDate()));
+                            } catch (Exception e) {
+                                throw new IllegalArgumentException(e);
+                            }
+                        }
+                    });*/
+
                     JSONObject Message = GetBirthdayDetailResult.getJSONObject("UserBirthdayDetailMessage");
                     error = Message.optString("ErrorMsg");
                     Success = Message.optString("Success");

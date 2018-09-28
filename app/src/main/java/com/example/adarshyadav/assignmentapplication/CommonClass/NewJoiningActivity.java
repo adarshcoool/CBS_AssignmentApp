@@ -29,8 +29,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class NewJoiningActivity extends AppCompatActivity {
 
@@ -114,6 +116,20 @@ public class NewJoiningActivity extends AppCompatActivity {
 
                         mArrayList.add(op);
                     }
+
+                    Collections.sort(mArrayList, new Comparator<NewJoiningPojo>() {
+                        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+
+                        @Override
+                        public int compare(NewJoiningPojo lhs, NewJoiningPojo rhs) {
+                            try {
+                                return f.parse(lhs.getDate()).compareTo(f.parse(rhs.getDate()));
+                            } catch (Exception e) {
+                                throw new IllegalArgumentException(e);
+                            }
+                        }
+                    });
+
 
                     JSONObject Message = GetJoiningDetailResult.getJSONObject("NewJoiningsMsgMessage");
                     error = Message.optString("ErrorMsg");
