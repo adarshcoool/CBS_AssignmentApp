@@ -97,14 +97,16 @@ public class LeaveBalanceReport extends AppCompatActivity {
 
                     JSONArray Result = GetLeaveStatusDetailResult.getJSONArray("LSDetails");
                     for (int i = 0; i < Result.length(); i++) {
+                        if (Result.getJSONObject(i).getString("Leave_type").equals("PR")) {
+                        } else {
+                            LeaveBalancePojo op = new LeaveBalancePojo();
 
-                        LeaveBalancePojo op = new LeaveBalancePojo();
+                            op.setAvailedLeave(Result.getJSONObject(i).getString("Availed"));
+                            op.setBalanceLeave(Result.getJSONObject(i).getString("Balance"));
+                            op.setLeaveType(Result.getJSONObject(i).getString("Leave_type"));
 
-                        op.setAvailedLeave(Result.getJSONObject(i).getString("Availed"));
-                        op.setBalanceLeave(Result.getJSONObject(i).getString("Balance"));
-                        op.setLeaveType(Result.getJSONObject(i).getString("Leave_type"));
-
-                        mArrayList.add(op);
+                            mArrayList.add(op);
+                        }
                     }
 
                     return true;

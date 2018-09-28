@@ -49,7 +49,26 @@ public class LeaveBalanceAdapter extends BaseAdapter {
         AvailedLeave = rowView.findViewById(R.id.availed_leave);
         BalanceLeave = rowView.findViewById(R.id.balance_leave);
 
-        LeaveType.setText(result.get(position).getLeaveType());
+        if ((result.get(position).getLeaveType()).equals("CL")) {
+            LeaveType.setText("Casual Leave");
+        } else if ((result.get(position).getLeaveType()).equals("LWP")) {
+            LeaveType.setText("Leave Without Pay");
+        } else if ((result.get(position).getLeaveType()).equals("EL")) {
+            LeaveType.setText("Earned Leave");
+        } else if ((result.get(position).getLeaveType()).equals("SL")) {
+            LeaveType.setText("Short Leave");
+        } else if ((result.get(position).getLeaveType()).equals("ABS")) {
+            LeaveType.setText("Absent");
+        } else if ((result.get(position).getLeaveType()).equals("EWP")) {
+            LeaveType.setText("Extra Work Paid");
+        } else if ((result.get(position).getLeaveType()).equals("ABN")) {
+            LeaveType.setText("Not Punch(Absent)");
+        } else if ((result.get(position).getLeaveType()).equals("COFF")) {
+            LeaveType.setText("Compensatory Leave");
+        } else if ((result.get(position).getLeaveType()).equals("SPL")) {
+            LeaveType.setText("Special Leave");
+        }
+
         AvailedLeave.setText(result.get(position).getAvailedLeave());
         BalanceLeave.setText(result.get(position).getBalanceLeave());
         return rowView;
