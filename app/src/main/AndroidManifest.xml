@@ -29,7 +29,6 @@
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".CommonClass.LeaveRegisterReport" />
         <activity android:name=".CommonClass.LeaveActivity" />
-        <activity android:name=".Adapters.LeaveRegisterAdapter" />
         <activity android:name=".CommonClass.HolidayActivity" />
         <activity android:name=".CommonClass.BirthdayActivity" />
         <activity android:name=".CommonClass.NewJoiningActivity" />
