@@ -45,7 +45,7 @@ public class LeaveBalanceReport extends AppCompatActivity {
 
         Logout = findViewById(R.id.logout);
         LeaveBalance = findViewById(R.id.leave_balance);
-        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveStatusDetail?AssoCode=DT1033";
+        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveStatusDetail?AssoCode=DT1002";
 
         mArrayList = new ArrayList<NewJoiningPojo>();
         new ListAsyncTask().execute(URL);

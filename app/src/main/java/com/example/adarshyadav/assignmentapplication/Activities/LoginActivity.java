@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -117,14 +118,17 @@ public class LoginActivity extends AppCompatActivity {
             // form field with an error.
             focusView.requestFocus();
         } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            //showProgress(true);
+          /*   Show a progress spinner, and kick off a background task to
+             perform the user login attempt.
+            showProgress(true);
 
             String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/UserLogin?UserName=" + email + "&Password=" + password;
-            // VALID USERNAME: DT1033, PWD: DT1033
-
-            new LogInAsyncTask().execute(URL);
+             VALID USERNAME: DT1033, PWD: DT1033*/
+            if (email.equals("DT1002") && password.equals("DT1002")) {
+                String URL = "http://103.75.33.98/HRLogin/LoginService.svc/UserLogin?Company_No=COGNI&Location_No=NOIDA&UserName=" + email + "&Password=" + password;
+                Log.e("RAM....", URL);
+                new LogInAsyncTask().execute(URL);
+            }
         }
     }
 

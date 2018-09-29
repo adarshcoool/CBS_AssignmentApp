@@ -51,7 +51,7 @@ public class LeaveRegisterReport extends AppCompatActivity {
             }
         });
         postTransaction = findViewById(R.id.post_list_view);
-        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveAppDetail?AppCode=&EmpCode=DT1033";
+        String URL = "http://103.75.33.98/HRLogin/LoginService.svc/GetLeaveAppDetail?AppCode=&EmpCode=DT1002";
         mArrayList = new ArrayList<LeaveRegisterPojo>();
         new ListAsyncTask().execute(URL);
     }

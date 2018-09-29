@@ -228,7 +228,7 @@ public class LeaveActivity extends AppCompatActivity {
             try {
                 jsonObject.put("COMPANY_NO", "COGNI");
                 jsonObject.put("LOCATION_NO", "NOIDA");
-                jsonObject.put("emp_code", "DT1033");
+                jsonObject.put("emp_code", "DT1002");
                 jsonObject.put("App_code", "");
                 jsonObject.put("Leave_type", lType);
                 jsonObject.put("Notified_date", not_date);
@@ -247,7 +247,8 @@ public class LeaveActivity extends AppCompatActivity {
             String jsonStr = jsonObject.toString();
             System.out.println("jsonString: " + jsonStr);
 
-            URL_DETAIL = "http://hbmas.cogniscient.in/" + "HRLoginService/LoginService.svc/SetLeaveDataADD";
+            //URL_DETAIL = "http://hbmas.cogniscient.in/" + "HRLoginService/LoginService.svc/SetLeaveDataADD";
+            URL_DETAIL = "http://103.75.33.98/HRLogin/LoginService.svc/SetLeaveDataADD";
             getResponse(jsonStr, URL_DETAIL);
         } catch (Exception e) {
             e.printStackTrace();
