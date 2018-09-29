@@ -128,6 +128,8 @@ public class LoginActivity extends AppCompatActivity {
                 String URL = "http://103.75.33.98/HRLogin/LoginService.svc/UserLogin?Company_No=COGNI&Location_No=NOIDA&UserName=" + email + "&Password=" + password;
                 Log.e("RAM....", URL);
                 new LogInAsyncTask().execute(URL);
+            } else {
+                Toast.makeText(getApplicationContext(), "Invalid Credential", Toast.LENGTH_LONG).show();
             }
         }
     }
