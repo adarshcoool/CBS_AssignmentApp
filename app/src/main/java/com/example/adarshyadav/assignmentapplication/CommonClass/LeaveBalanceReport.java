@@ -45,7 +45,7 @@ public class LeaveBalanceReport extends AppCompatActivity {
 
         Logout = findViewById(R.id.logout);
         LeaveBalance = findViewById(R.id.leave_balance);
-        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetLeaveStatusDetail?AssoCode=DT1002";
+        String URL = "http://103.75.33.98/HRLogin/LoginService.svc/GetLeaveStatusDetail?AssoCode=DT1002";
 
         mArrayList = new ArrayList<NewJoiningPojo>();
         new ListAsyncTask().execute(URL);
@@ -97,7 +97,18 @@ public class LeaveBalanceReport extends AppCompatActivity {
 
                     JSONArray Result = GetLeaveStatusDetailResult.getJSONArray("LSDetails");
                     for (int i = 0; i < Result.length(); i++) {
-                        if (Result.getJSONObject(i).getString("Leave_type").equals("PR")) {
+                        if (Result.getJSONObject(i).getString("Leave_type").equals("PR") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("PL") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("Test") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("OD") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("ODS") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("EXW") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("LWP2") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("ONSITE") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("HD") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("EW") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("TEST_C") ||
+                                Result.getJSONObject(i).getString("Leave_type").equals("TEST_W")) {
                         } else {
                             LeaveBalancePojo op = new LeaveBalancePojo();
 

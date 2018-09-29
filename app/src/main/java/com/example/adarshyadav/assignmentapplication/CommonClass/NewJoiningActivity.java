@@ -50,7 +50,7 @@ public class NewJoiningActivity extends AppCompatActivity {
 
         joiningListView = findViewById(R.id.new_joining);
         backButton = findViewById(R.id.back_button);
-        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetNewJoiningDetail?LoginName=";
+        String URL = "http://103.75.33.98/HRLogin/LoginService.svc/GetNewJoiningDetail?LoginName=";
 
         mArrayList = new ArrayList<NewJoiningPojo>();
         new ListAsyncTask().execute(URL);
