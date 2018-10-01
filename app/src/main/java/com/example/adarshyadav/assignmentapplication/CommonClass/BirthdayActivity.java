@@ -49,8 +49,8 @@ public class BirthdayActivity extends AppCompatActivity {
         backButton = findViewById(R.id.back_button);
 
         birthdayListview = findViewById(R.id.birthday_list_view);
-        String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetUserBirthdayDetail?LoginName=";
-
+        //String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetUserBirthdayDetail?LoginName=";
+        String URL = "http://103.75.33.98/HRLogin/LoginService.svc/GetUserBirthdayDetail?LoginName=";
         mArrayList = new ArrayList<BirthdayPojo>();
         new ListAsyncTask().execute(URL);
 
