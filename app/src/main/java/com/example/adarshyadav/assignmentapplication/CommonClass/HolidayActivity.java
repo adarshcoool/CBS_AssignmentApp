@@ -36,7 +36,7 @@ public class HolidayActivity extends AppCompatActivity {
 
     ListView holidayListview;
     HolidayAdapter mAdapter;
-    ArrayList mArrayList;
+    ArrayList<HolidayPojo> mArrayList;
     TextView Logout;
     ImageView backButton;
 

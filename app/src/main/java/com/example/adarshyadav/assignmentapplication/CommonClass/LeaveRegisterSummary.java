@@ -34,7 +34,7 @@ public class LeaveRegisterSummary extends AppCompatActivity {
 
     ListView postTransaction;
     LeaveRegisterSummaryAdapter mAdapter;
-    ArrayList mArrayList;
+    ArrayList<LeaveRegisterSummaryPojo> mArrayList;
     TextView logout;
 
 
@@ -128,6 +128,8 @@ public class LeaveRegisterSummary extends AppCompatActivity {
                 Collections.reverse(mArrayList);
                 mAdapter = new LeaveRegisterSummaryAdapter(LeaveRegisterSummary.this, mArrayList);
                 postTransaction.setAdapter(mAdapter);
+
+
                 mAdapter.notifyDataSetChanged();
             } else {
                 Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();

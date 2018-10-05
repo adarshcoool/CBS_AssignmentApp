@@ -51,6 +51,7 @@ public class LeaveActivity extends AppCompatActivity {
 
     SaveDataAsyncTask mSaveDataAsyncTask;
 
+
     String[] leaveType = {"Casual Leave", "Leave Without Pay", "Absent", "Earned Leave", "Short Leave"};
     String lType, sType;
     String errorMsg, Success;
@@ -72,6 +73,11 @@ public class LeaveActivity extends AppCompatActivity {
         fromDate.setFocusable(false);
         etReason = findViewById(R.id.et_Reason);
         logout = findViewById(R.id.logout);
+
+
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        toDate.setText(date);
+        fromDate.setText(date);
 
         //Creating the ArrayAdapter instance having the spinner list
         ArrayAdapter leaveAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, leaveType);
@@ -151,6 +157,24 @@ public class LeaveActivity extends AppCompatActivity {
                 }
 
                 mSaveDataAsyncTask = new SaveDataAsyncTask();
+
+                if (SessionFromDate.getSelectedItem().toString().equals(SessionToDate.getSelectedItem().toString())) {
+                    if ((LeaveType.getSelectedItem().toString().equals("Short Leave")) &&
+                            ((SessionFromDate.getSelectedItem().toString().equals("Whole Day")) ||
+                                    (SessionToDate.getSelectedItem().toString().equals("Whole Day")))) {
+                        Toast.makeText(getApplicationContext(), "Short Leave cannot be applied for whole day ", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        callAsync();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "From Session and To Session should be same", Toast.LENGTH_LONG).show();
+                }
+
+
+            }
+
+            private void callAsync() {
                 mSaveDataAsyncTask.execute();
             }
         });
