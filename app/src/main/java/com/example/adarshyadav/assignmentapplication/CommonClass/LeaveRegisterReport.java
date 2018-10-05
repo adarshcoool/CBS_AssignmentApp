@@ -34,7 +34,7 @@ public class LeaveRegisterReport extends AppCompatActivity {
 
     ListView postTransaction;
     LeaveRegisterAdapter mAdapter;
-    ArrayList mArrayList;
+    ArrayList<LeaveRegisterPojo> mArrayList;
     TextView logout;
 
     @Override

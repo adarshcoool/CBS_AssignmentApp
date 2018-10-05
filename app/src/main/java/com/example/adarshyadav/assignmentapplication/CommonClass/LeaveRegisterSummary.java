@@ -128,8 +128,6 @@ public class LeaveRegisterSummary extends AppCompatActivity {
                 Collections.reverse(mArrayList);
                 mAdapter = new LeaveRegisterSummaryAdapter(LeaveRegisterSummary.this, mArrayList);
                 postTransaction.setAdapter(mAdapter);
-
-
                 mAdapter.notifyDataSetChanged();
             } else {
                 Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();
