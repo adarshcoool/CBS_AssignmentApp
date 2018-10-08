@@ -29,14 +29,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class BirthdayActivity extends AppCompatActivity {
 
     ListView birthdayListview;
     BirthdayAdapter mAdapter;
-    ArrayList mArrayList;
+    ArrayList<BirthdayPojo> mArrayList;
     TextView Logout;
     ImageView backButton;
 
@@ -51,7 +53,7 @@ public class BirthdayActivity extends AppCompatActivity {
         birthdayListview = findViewById(R.id.birthday_list_view);
         //String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetUserBirthdayDetail?LoginName=";
         String URL = "http://103.75.33.98/HRLogin/LoginService.svc/GetUserBirthdayDetail?LoginName=";
-        mArrayList = new ArrayList<BirthdayPojo>();
+        mArrayList = new ArrayList<>();
         new ListAsyncTask().execute(URL);
 
         Logout.setOnClickListener(new View.OnClickListener() {
@@ -117,8 +119,8 @@ public class BirthdayActivity extends AppCompatActivity {
                         mArrayList.add(op);
                     }
 
-                   /* Collections.sort(mArrayList, new Comparator<BirthdayPojo>() {
-                        SimpleDateFormat f = new SimpleDateFormat("dd/MMM/yyyy");
+                    Collections.sort(mArrayList, new Comparator<BirthdayPojo>() {
+                        SimpleDateFormat f = new SimpleDateFormat("dd-MMM");
 
                         @Override
                         public int compare(BirthdayPojo lhs, BirthdayPojo rhs) {
@@ -128,7 +130,7 @@ public class BirthdayActivity extends AppCompatActivity {
                                 throw new IllegalArgumentException(e);
                             }
                         }
-                    });*/
+                    });
 
                     JSONObject Message = GetBirthdayDetailResult.getJSONObject("UserBirthdayDetailMessage");
                     error = Message.optString("ErrorMsg");

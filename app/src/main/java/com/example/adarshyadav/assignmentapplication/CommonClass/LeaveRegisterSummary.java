@@ -53,7 +53,7 @@ public class LeaveRegisterSummary extends AppCompatActivity {
         });
         postTransaction = findViewById(R.id.post_list_view);
         String URL = "http://103.75.33.98/HRLogin/LoginService.svc/GetLeaveAppDetail?AppCode=&EmpCode=DT1002";
-        mArrayList = new ArrayList<LeaveRegisterSummaryPojo>();
+        mArrayList = new ArrayList<>();
         new ListAsyncTask().execute(URL);
     }
 

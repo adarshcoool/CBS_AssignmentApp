@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.example.adarshyadav.assignmentapplication.Activities.LoginActivity;
 import com.example.adarshyadav.assignmentapplication.Adapters.LeaveBalanceAdapter;
 import com.example.adarshyadav.assignmentapplication.Pojo.LeaveBalancePojo;
-import com.example.adarshyadav.assignmentapplication.Pojo.NewJoiningPojo;
 import com.example.adarshyadav.assignmentapplication.R;
 
 import org.apache.http.HttpEntity;
@@ -35,7 +34,7 @@ public class LeaveBalanceReport extends AppCompatActivity {
 
     ListView LeaveBalance;
     LeaveBalanceAdapter mAdapter;
-    ArrayList mArrayList;
+    ArrayList<LeaveBalancePojo> mArrayList;
     TextView Logout;
 
     @Override
@@ -47,7 +46,7 @@ public class LeaveBalanceReport extends AppCompatActivity {
         LeaveBalance = findViewById(R.id.leave_balance);
         String URL = "http://103.75.33.98/HRLogin/LoginService.svc/GetLeaveStatusDetail?AssoCode=DT1002";
 
-        mArrayList = new ArrayList<NewJoiningPojo>();
+        mArrayList = new ArrayList<>();
         new ListAsyncTask().execute(URL);
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override

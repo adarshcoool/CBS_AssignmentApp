@@ -38,7 +38,7 @@ public class NewJoiningActivity extends AppCompatActivity {
 
     ListView joiningListView;
     NewJoiningAdapter mAdapter;
-    ArrayList mArrayList;
+    ArrayList<NewJoiningPojo> mArrayList;
     TextView Logout;
     ImageView backButton;
 
@@ -53,7 +53,7 @@ public class NewJoiningActivity extends AppCompatActivity {
         //String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetNewJoiningDetail?LoginName=";
         String URL = "http://103.75.33.98/HRLogin/LoginService.svc/GetNewJoiningDetail?LoginName=";
 
-        mArrayList = new ArrayList<NewJoiningPojo>();
+        mArrayList = new ArrayList<>();
         new ListAsyncTask().execute(URL);
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override

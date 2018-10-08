@@ -263,7 +263,7 @@ public class LeaveActivity extends AppCompatActivity {
                 jsonObject.put("To_session", sType);
                 jsonObject.put("employee_reason", etReason.getText().toString().trim());
                 jsonObject.put("employer_reason", "");
-                jsonObject.put("Status", "0");//m-0, c-1 , a-2
+                jsonObject.put("Status", "");//m-0, c-1 , a-2
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

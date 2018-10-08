@@ -50,7 +50,7 @@ public class HolidayActivity extends AppCompatActivity {
         Logout = findViewById(R.id.logout);
         String URL = "http://hbmas.cogniscient.in/HRLoginService/LoginService.svc/GetHolidayDatail?YEAR=2018&CALENDER_CODE=2018";
 
-        mArrayList = new ArrayList<HolidayPojo>();
+        mArrayList = new ArrayList<>();
         new ListAsyncTask().execute(URL);
 
         backButton.setOnClickListener(new View.OnClickListener() {
