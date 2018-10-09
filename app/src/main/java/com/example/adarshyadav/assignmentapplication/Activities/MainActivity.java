@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.adarshyadav.assignmentapplication.CommonClass.AboutUs;
 import com.example.adarshyadav.assignmentapplication.CommonClass.BirthdayActivity;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     LinearLayout Leave, Report;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        textView = findViewById(R.id.scrolling_textview);
         Leave = findViewById(R.id.get_transaction);
         Report = findViewById(R.id.post_transaction);
+
+        textView.setSelected(true);
 
 
         Leave.setOnClickListener(new View.OnClickListener() {
